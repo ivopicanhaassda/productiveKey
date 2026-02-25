@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Controlador de Música - Visualização 1</title>
+    
+    <!-- Preload para melhor performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🔑</text></svg>">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="Untitled-2.css">
+    <link rel="stylesheet" href="animations.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Progress Bar -->
+    <div class="progress-bar" id="progressBar"></div>
+
+    <!-- Header -->
+    <header class="header" id="header">
+        <nav class="nav">
+            <a href="html.html" class="nav-brand">
+                <div class="app-icon">🔑</div>
+                <span class="app-name">Productive Key</span>
+            </a>
+            <ul class="nav-links" id="navLinks" role="menu" aria-hidden="true">
+                <li><a href="html.html#features">Funcionalidades</a></li>
+                <li><a href="html.html#download">Transferência</a></li>
+                <li><a href="html.html#weather">Tempo & Produtividade</a></li>
+                <li><a href="html.html#review">Avaliação</a></li>
+            </ul>
+            <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Abrir menu" aria-expanded="false" aria-controls="navLinks">☰</button>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main class="iphone-fullscreen">
+        <div class="container">
+            <div class="iphone-view-header scroll-animate">
+                <h1>Controlador de Música</h1>
+                <p>Visualização do Controlador em Ação</p>
+            </div>
+
+            <div class="iphone-fullscreen-wrapper scroll-animate">
+                <div class="iphone-mockup">
+                    <div class="iphone-notch"></div>
+                    <div class="iphone-screen">
+                        <img class="iphone-full-image" src=".vscode/Screenshot_2026-01-19-15-28-17-07_5c12fc0043a69961f6a2b8862ba5955c.jpg" alt="Visualização do Controlador">
+                    </div>
+                    <div class="iphone-home-button"></div>
+                </div>
+            </div>
+
+            <div class="view-info scroll-animate">
+                <h2>Controlador Ativo</h2>
+                <p>Esta é a interface do controlador de música quando uma reprodução está ativa. O controlador sincroniza automaticamente com a aplicação de música do seu dispositivo, permitindo controlar a reprodução diretamente do Productive Key.</p>
+                
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-card-icon">🎵</div>
+                        <h3>Sincronização em Tempo Real</h3>
+                        <p>Acompanha a música que está tocando na sua app</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-card-icon">⏯️</div>
+                        <h3>Controle Total</h3>
+                        <p>Pause, play, próxima e anterior na interface</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-card-icon">🎨</div>
+                        <h3>Design Moderno</h3>
+                        <p>Interface elegante e intuitiva para melhor UX</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="app-icon">🔑</div>
+                    <span class="app-name">Productive Key</span>
+                </div>
+                <p class="footer-tagline">Produtividade em harmonia com a natureza - Trabalhe com o tempo, não contra ele</p>
+                <p class="footer-copyright">&copy; 2025-2026 Filipe Veríssmo. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="darkMode.js"></script>
+    <script src="notifications.js"></script>
+    <script src="weather.js"></script>
+    <script src="rating.js"></script>
+    <script src="email.js"></script>
+    <script src="feedback.js"></script>
+    <script src="scrollAnimations.js"></script>
+    <script src="main.js"></script>
+    <script src="iphone-time.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

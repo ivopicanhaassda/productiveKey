@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Controlador de Música - Productive Key</title>
+    
+    <!-- Meta Tags -->
+    <meta name="description" content="Controlador de Música - Productive Key">
+    <meta name="author" content="Productive Key">
+    
+    <!-- Preload para melhor performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🔑</text></svg>">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="Untitled-2.css">
+    <link rel="stylesheet" href="animations.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Progress Bar -->
+    <div class="progress-bar" id="progressBar"></div>
+
+    <!-- Header -->
+    <header class="header" id="header">
+        <nav class="nav">
+            <a href="html.html" class="nav-brand">
+                <div class="app-icon">🔑</div>
+                <span class="app-name">Productive Key</span>
+            </a>
+            <ul class="nav-links" id="navLinks" role="menu" aria-hidden="true">
+                <li><a href="html.html#features">Funcionalidades</a></li>
+                <li><a href="html.html#download">Transferência</a></li>
+                <li><a href="html.html#weather">Tempo & Produtividade</a></li>
+                <li><a href="html.html#review">Avaliação</a></li>
+                <li><a href="direitos-autor.html">Direitos de Autor</a></li>
+            </ul>
+            <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Abrir menu" aria-expanded="false" aria-controls="navLinks">☰</button>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main class="music-controller-page">
+        <div class="container">
+            <section class="music-hero">
+                <h1>Controlador de Música</h1>
+                <p>Controle qualquer aplicação de música do seu dispositivo</p>
+            </section>
+
+            <!-- iPhone Mockups Comparativos -->
+            <section class="iphone-comparison scroll-animate">
+                <!-- iPhone 1: Com Música -->
+                <div class="iphone-mockup-container">
+                    <a href="../iphone-views/view1.html" class="iphone-link">
+                        <div class="iphone-wrapper">
+                            <div class="iphone-notch"></div>
+                            <div class="iphone-screen">
+                                <img class="iphone-screenshot" src=".vscode/Screenshot_2026-01-19-15-28-17-07_5c12fc0043a69961f6a2b8862ba5955c.jpg" alt="YT Music ReVanced com Reprodução">
+                            </div>
+                            <div class="iphone-home-button"></div>
+                        </div>
+                    </a>
+                    <div class="iphone-label">App não iniciada</div>
+                </div>
+
+                <!-- iPhone 2: Com Música -->
+                <div class="iphone-mockup-container">
+                    <a href="../iphone-views/view2.html" class="iphone-link">
+                        <div class="iphone-wrapper">
+                            <div class="iphone-notch"></div>
+                            <div class="iphone-screen">
+                                <img class="iphone-screenshot" src=".vscode/Screenshot_2026-01-19-16-01-53-30_5c12fc0043a69961f6a2b8862ba5955c.jpg" alt="YT Music ReVanced com Reprodução">
+                            </div>
+                            <div class="iphone-home-button"></div>
+                        </div>
+                    </a>
+                    <div class="iphone-label">Música em reprodução</div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="app-icon">🔑</div>
+                    <span class="app-name">Productive Key</span>
+                </div>
+                <p class="footer-tagline">Produtividade em harmonia com a natureza - Trabalhe com o tempo, não contra ele</p>
+                <p class="footer-copyright">&copy; 2025-2026 Filipe Veríssmo. Todos os direitos reservados.</p>
+                <p class="footer-copyright"><a href="direitos-autor.html">Direitos de Autor</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="darkMode.js"></script>
+    <script src="notifications.js"></script>
+    <script src="weather.js"></script>
+    <script src="rating.js"></script>
+    <script src="email.js"></script>
+    <script src="feedback.js"></script>
+    <script src="scrollAnimations.js"></script>
+    <script src="main.js"></script>
+    
+    <!-- EmailJS SDK -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script>
+        // Inicializar EmailJS com SUA chave pública
+        (function() {
+            emailjs.init("6D2NtGC5SRlYRJGMS"); 
+        })();
+    </script>
+    
+    <!-- Botpress Chatbot -->
+    <script src="https://cdn.botpress.cloud/webchat/v3.3/inject.js"></script>
+    <script src="https://files.bpcontent.cloud/2025/02/20/16/20250220162029-UIHKCWPQ.js" defer></script>
+    
+    <!-- iPhone Time Update -->
+    <script src="iphone-time.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

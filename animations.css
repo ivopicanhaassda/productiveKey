@@ -1,0 +1,452 @@
+/* ================================
+   ANIMAÇÕES PROFISSIONAIS PREMIUM
+   ================================ */
+
+/* ===== CUBIC BEZIER PROFISSIONAIS ===== */
+:root {
+    /* Easing functions profissionais */
+    --ease-in-out-expo: cubic-bezier(1, 0, 0, 1);
+    --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+    --ease-in-out-circ: cubic-bezier(0.785, 0.135, 0.15, 0.86);
+    --ease-out-circ: cubic-bezier(0.075, 0.82, 0.165, 1);
+    --ease-out-back: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    --ease-out-elastic: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    --ease-in-out-quad: cubic-bezier(0.455, 0.03, 0.515, 0.955);
+    --ease-out-quad: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* ===== KEYFRAMES PROFISSIONAIS ===== */
+
+/* Entrada dos iPhones - Da esquerda com parallax 3D */
+@keyframes iphoneEnterLeft {
+    0% {
+        opacity: 0;
+        transform: translateX(-120px) rotateY(95deg) rotateZ(-8deg) perspective(1000px);
+    }
+    60% {
+        transform: translateX(10px) rotateY(-5deg) rotateZ(1deg);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0) rotateY(0) rotateZ(0) perspective(1000px);
+    }
+}
+
+/* Entrada dos iPhones - Da direita com parallax 3D */
+@keyframes iphoneEnterRight {
+    0% {
+        opacity: 0;
+        transform: translateX(120px) rotateY(-95deg) rotateZ(8deg) perspective(1000px);
+    }
+    60% {
+        transform: translateX(-10px) rotateY(5deg) rotateZ(-1deg);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0) rotateY(0) rotateZ(0) perspective(1000px);
+    }
+}
+
+/* Hover levitation suave */
+@keyframes hoverFloat {
+    0%, 100% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-8px);
+    }
+}
+
+/* Brilho sutil no hover */
+@keyframes glowPulse {
+    0%, 100% {
+        box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15),
+                    0 0px 0px rgba(59, 130, 246, 0);
+    }
+    50% {
+        box-shadow: 0 35px 70px rgba(0, 0, 0, 0.25),
+                    0 0px 30px rgba(59, 130, 246, 0.1);
+    }
+}
+
+/* Animação contínua de ir e voltar (Idle Animation) */
+@keyframes continuousFloat {
+    0%, 100% {
+        transform: translateY(0px) translateZ(0px) rotateY(0deg);
+    }
+    25% {
+        transform: translateY(-12px) translateZ(8px) rotateY(-3deg);
+    }
+    50% {
+        transform: translateY(-18px) translateZ(15px) rotateY(-6deg);
+    }
+    75% {
+        transform: translateY(-12px) translateZ(8px) rotateY(-3deg);
+    }
+}
+
+/* Escala elegante em entrada */
+@keyframes elegantScale {
+    0% {
+        opacity: 0;
+        transform: scale(0.85) translateY(40px);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+
+/* ===== CONTAINER DO IPHONE ===== */
+
+.iphone-container {
+    transform-style: preserve-3d;
+    perspective: 1500px;
+    transition: all 0.8s var(--ease-out-expo);
+    position: relative;
+    will-change: transform, box-shadow;
+}
+
+/* Animação de entrada - esquerda */
+.iphone-container.scroll-animate:nth-child(odd) {
+    animation: iphoneEnterLeft 1.2s var(--ease-out-expo) forwards;
+    animation-fill-mode: both;
+}
+
+/* Animação de entrada - direita */
+.iphone-container.scroll-animate:nth-child(even) {
+    animation: iphoneEnterRight 1.2s var(--ease-out-expo) forwards;
+    animation-fill-mode: both;
+}
+
+/* Atraso em cascata para múltiplos iPhones */
+.iphone-container.scroll-animate:nth-child(1) {
+    animation-delay: 0.1s;
+}
+
+.iphone-container.scroll-animate:nth-child(2) {
+    animation-delay: 0.3s;
+}
+
+.iphone-container.scroll-animate:nth-child(3) {
+    animation-delay: 0.5s;
+}
+
+/* Animação contínua quando está visível */
+.iphone-container.show {
+    animation: continuousFloat 6s ease-in-out infinite !important;
+    animation-delay: var(--float-delay, 0s) !important;
+}
+
+/* Delay diferente para cada iPhone */
+.iphone-container.show:nth-child(1) {
+    --float-delay: 0s;
+}
+
+.iphone-container.show:nth-child(2) {
+    --float-delay: 0.5s;
+}
+
+.iphone-container.show:nth-child(3) {
+    --float-delay: 1s;
+}
+
+/* ===== HOVER EFFECT - PREMIUM 3D ===== */
+
+.iphone-container {
+    position: relative;
+}
+
+.iphone-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(
+        135deg,
+        rgba(59, 130, 246, 0.1) 0%,
+        rgba(59, 130, 246, 0) 50%,
+        rgba(59, 130, 246, 0.05) 100%
+    );
+    border-radius: inherit;
+    opacity: 0;
+    transition: opacity 0.6s ease;
+    pointer-events: none;
+    z-index: 10;
+}
+
+.iphone-container:hover {
+    /* Elevação com escala */
+    transform: translateY(-20px) rotateY(-12deg) rotateX(8deg) scale(1.02);
+    
+    /* Sombra profunda e distante */
+    box-shadow: 
+        0 30px 60px rgba(0, 0, 0, 0.3),
+        0 50px 100px rgba(0, 0, 0, 0.15),
+        0 0 40px rgba(59, 130, 246, 0.2);
+    
+    animation: hoverFloat 3s ease-in-out infinite;
+}
+
+.iphone-container:hover::before {
+    opacity: 1;
+}
+
+/* ===== ELEMENTO IPHONE INTERNO ===== */
+
+.iphone {
+    transition: all 0.6s var(--ease-out-expo);
+    transform-style: preserve-3d;
+    will-change: transform;
+    position: relative;
+    z-index: 5;
+}
+
+.iphone-container:hover .iphone {
+    transform: translateZ(20px) scale(1.02) rotateX(3deg);
+    filter: brightness(1.1);
+}
+
+/* Screen do iPhone com efeito glass */
+.iphone-screen {
+    position: relative;
+    overflow: hidden;
+    transition: all 0.6s var(--ease-out-expo);
+}
+
+.iphone-container:hover .iphone-screen {
+    box-shadow: 
+        inset 0 0 30px rgba(255, 255, 255, 0.15),
+        inset 0 0 60px rgba(59, 130, 246, 0.1);
+    filter: brightness(1.05);
+}
+
+/* ===== LABEL DO IPHONE ===== */
+
+.iphone-label {
+    transition: all 0.6s var(--ease-out-expo);
+    transform: translateY(10px);
+    opacity: 0.85;
+}
+
+.iphone-container:hover .iphone-label {
+    transform: translateY(-5px) scale(1.05);
+    opacity: 1;
+    animation: none;
+}
+
+.iphone-label h3 {
+    transition: color 0.4s var(--ease-out-quad);
+}
+
+.iphone-container:hover .iphone-label h3 {
+    color: #3b82f6;
+}
+
+/* ===== FEATURE CARDS ===== */
+
+.feature-card {
+    transition: all 0.6s var(--ease-out-expo);
+    will-change: transform, box-shadow;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Animações para títulos e subtítulos de seção */
+.section-title.scroll-animate {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: elegantScale 0.8s var(--ease-out-expo) forwards;
+}
+
+.section-subtitle.scroll-animate {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: elegantScale 0.8s var(--ease-out-expo) forwards;
+    animation-delay: 0.2s;
+}
+
+.feature-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, 
+        transparent, 
+        rgba(255, 255, 255, 0.1), 
+        transparent);
+    transition: left 0.6s var(--ease-out-expo);
+}
+
+.feature-card:hover {
+    transform: translateY(-12px) scale(1.02);
+    box-shadow: 
+        0 20px 40px rgba(0, 0, 0, 0.12),
+        0 0 40px rgba(59, 130, 246, 0.1);
+}
+
+.feature-card:hover::before {
+    left: 100%;
+}
+
+.feature-card .feature-icon {
+    transition: all 0.4s var(--ease-out-back);
+}
+
+.feature-card:hover .feature-icon {
+    transform: scale(1.2) rotateZ(10deg);
+    animation: hoverFloat 2s ease-in-out infinite;
+}
+
+/* ===== DOWNLOAD CARD ===== */
+
+.download-card {
+    transition: all 0.7s var(--ease-out-expo);
+    position: relative;
+    border: 2px solid transparent;
+}
+
+.download-card:hover {
+    transform: translateY(-16px);
+    box-shadow: 
+        0 25px 50px rgba(0, 0, 0, 0.15),
+        0 0 50px rgba(59, 130, 246, 0.2);
+    border-color: rgba(59, 130, 246, 0.3);
+}
+
+.download-icon {
+    transition: none;
+    display: inline-block;
+    line-height: 1;
+    animation: none !important;
+    box-shadow: none !important;
+    text-shadow: none !important;
+    filter: none !important;
+}
+
+.download-card:hover .download-icon {
+    animation: none !important;
+    box-shadow: none !important;
+    text-shadow: none !important;
+    filter: none !important;
+}
+
+/* ===== BOTÕES ===== */
+
+.btn {
+    transition: all 0.4s var(--ease-out-quad);
+    position: relative;
+    overflow: hidden;
+}
+
+.btn::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.3);
+    transform: translate(-50%, -50%);
+    transition: width 0.6s, height 0.6s;
+    pointer-events: none;
+}
+
+.btn:hover {
+    transform: translateY(-4px) scale(1.05);
+    box-shadow: 0 12px 30px rgba(59, 130, 246, 0.4);
+}
+
+.btn:hover::after {
+    width: 300px;
+    height: 300px;
+}
+
+/* ===== STEPS E OUTROS ===== */
+
+.step {
+    transition: all 0.5s var(--ease-out-quad);
+    position: relative;
+    opacity: 0;
+    transform: translateY(30px);
+}
+
+.step.show {
+    opacity: 1;
+    transform: translateY(0);
+    animation: none;
+}
+
+.step:hover {
+    transform: translateX(8px) translateY(-6px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+}
+
+.step-number {
+    transition: all 0.4s var(--ease-out-back);
+}
+
+.step:hover .step-number {
+    transform: scale(1.2) rotateZ(360deg);
+    background: linear-gradient(135deg, #3b82f6, #1e40af);
+}
+
+/* ===== RESPONSIVO ===== */
+
+@media (max-width: 1024px) {
+    .iphone-container {
+        perspective: 1000px;
+    }
+    
+    .iphone-container:hover {
+        transform: translateY(-15px) rotateY(-8deg) rotateX(5deg) scale(1.01);
+    }
+}
+
+@media (max-width: 768px) {
+    .iphone-container {
+        perspective: 800px;
+    }
+    
+    .iphone-container.scroll-animate:nth-child(odd) {
+        animation: iphoneEnterLeft 0.8s var(--ease-out-expo) forwards;
+    }
+    
+    .iphone-container.scroll-animate:nth-child(even) {
+        animation: iphoneEnterRight 0.8s var(--ease-out-expo) forwards;
+    }
+    
+    .iphone-container:hover {
+        transform: translateY(-10px) rotateY(-6deg) rotateX(3deg);
+    }
+    
+    .feature-card:hover {
+        transform: translateY(-8px);
+    }
+    
+    .download-card:hover {
+        transform: translateY(-12px);
+    }
+}
+
+/* ===== ACESSIBILIDADE ===== */
+
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+    
+    .iphone-container:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+    }
+}
+

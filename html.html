@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Productive Key - Produtividade em Harmonia com o Tempo</title>
+    
+    <!-- Meta Tags Otimizadas -->
+    <meta name="description" content="Productive Key: Aplicação que analisa condições meteorológicas para otimizar a sua produtividade. Transferência gratuita para Android.">
+    <meta name="keywords" content="produtividade, tempo, meteorologia, aplicação, android, trabalho, foco, clima, app, transferência">
+    <meta name="author" content="Productive Key">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="Productive Key - Produtividade em Harmonia com o Tempo">
+    <meta property="og:description" content="Aplicação que analisa condições meteorológicas para otimizar a sua produtividade. Transferência gratuita disponível.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://i.imgur.com/3JQ2X8c.png">
+    
+    <!-- Preload para melhor performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🔑</text></svg>">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="Untitled-2.css">
+    <link rel="stylesheet" href="animations.css">
+</head>
+<body>
+    <!-- Progress Bar -->
+    <div class="progress-bar" id="progressBar"></div>
+
+    <!-- Header -->
+    <header class="header" id="header">
+        <nav class="nav">
+            <a href="#" class="nav-brand">
+                <div class="app-icon">🔑</div>
+                <span class="app-name">Productive Key</span>
+            </a>
+            <ul class="nav-links" id="navLinks" role="menu" aria-hidden="true">
+                <li><a href="#features">Funcionalidades</a></li>
+                <li><a href="#download">Transferência</a></li>
+                <li><a href="#weather">Tempo & Produtividade</a></li>
+                <li><a href="#review">Avaliação</a></li>
+                <li><a href="direitos-autor.html">Direitos de Autor</a></li>
+            </ul>
+            <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Abrir menu" aria-expanded="false" aria-controls="navLinks">☰</button>
+        </nav>
+    </header>
+
+    <!-- Notification -->
+    <div id="notification" class="notification">
+        <div class="notification-icon">✅</div>
+        <div class="notification-content">
+            <div class="notification-title" id="notification-title">Sucesso!</div>
+            <div class="notification-message" id="notification-message"></div>
+        </div>
+    </div>
+
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1 class="hero-title">
+                        Produtividade em Harmonia com o Tempo
+                    </h1>
+                    <p class="hero-description">
+                        O Productive Key analisa as condições meteorológicas para criar o ambiente perfeito de trabalho. Trabalhe com a natureza, não contra ela.
+                    </p>
+                    <div class="hero-buttons">
+                        <a class="btn btn-primary btn-download" href="https://www.mediafire.com/file/w0q2xsgmq3u0cfq/app-release.apk/file" target="_blank" rel="noopener noreferrer" onclick="trackDownload()">
+                            <span>📥 Transferência Gratuita</span>
+                        </a>
+                        <a class="btn btn-secondary" href="#features">
+                            <span>🔍 Saber Mais</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="hero-visual">
+                    <div class="app-mockup-container">
+                        <div class="app-mockup">
+                            <div class="app-screen">
+                                <div class="weather-header">
+                                    <div class="location" id="current-location">
+                                        <span class="loading"></span> A carregar...
+                                    </div>
+                                    <div class="productivity-score" id="weather-score">
+                                        <span class="loading"></span>
+                                    </div>
+                                </div>
+                                <div class="current-weather">
+                                    <div class="temperature" id="current-temp">
+                                        <span class="loading"></span>
+                                    </div>
+                                    <div class="condition" id="current-condition">
+                                        <span class="loading"></span>
+                                    </div>
+                                </div>
+                                <div class="weather-details">
+                                    <div class="detail-item">
+                                        <span class="label">💧 Humidade</span>
+                                        <span class="value" id="current-humidity">
+                                            <span class="loading"></span>
+                                        </span>
+                                    </div>
+                                    <div class="detail-item">
+                                        <span class="label">💨 Vento</span>
+                                        <span class="value" id="current-wind">
+                                            <span class="loading"></span>
+                                        </span>
+                                    </div>
+                                    <div class="detail-item">
+                                        <span class="label">🎯 Produtividade</span>
+                                        <span class="value" id="productivity-level">
+                                            <span class="loading"></span>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Statistics Section removed -->
+
+    <!-- Video Demo Section -->
+    <section id="demo" class="video-demo-section">
+        <div class="container">
+            <h2 class="section-title scroll-animate">Veja a App em Ação</h2>
+            <p class="section-subtitle scroll-animate">Descubra exatamente como funciona o Productive Key e como pode transformar a sua produtividade</p>
+            
+            <div class="video-wrapper scroll-animate">
+                <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/rLxbMjJXxlc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="features">
+        <div class="container">
+            <h2 class="section-title scroll-animate">Produtividade em Harmonia com o Tempo</h2>
+            <p class="section-subtitle scroll-animate">O Productive Key usa dados do tempo para otimizar o seu ambiente de trabalho e maximizar a sua produtividade</p>
+            
+            <div class="features-grid">
+                <div class="feature-card scroll-animate">
+                    <div class="feature-icon">🌤️</div>
+                    <h3>Análise do Tempo </h3>
+                    <p>Monitorização contínua das condições meteorológicas para melhorar a sua produtividade todos os dias</p>
+                </div>
+                
+                <div class="feature-card scroll-animate">
+                    <div class="feature-icon">⚡</div>
+                    <h3>Recomendações Inteligentes</h3>
+                    <p>Sugestões baseadas no tempo: concentração em dias claros, dicas criativas em dias nublados</p>
+                </div>
+                
+                <div class="feature-card scroll-animate">
+                    <div class="feature-icon">🎵</div>
+                    <h3>Reprodutor</h3>
+                    <p>Controle a sua musica sem ter que se destrair com outras apps</p>
+                </div>
+                
+                <div class="feature-card scroll-animate">
+                    <div class="feature-icon">🔋</div>
+                    <h3>Gestão de Energia</h3>
+                    <p>App com niveis de energia otimizados para melhor desempenho com nenhuma perda de energia</p>
+                </div>
+                
+                <div class="feature-card scroll-animate">
+                    <div class="feature-icon">🌙</div>
+                    <h3>Melhore o seu sono</h3>
+                    <p>Melhorando o seu sono abre novas possibilidades de produtividade</p>
+                </div>
+                
+                <div class="feature-card scroll-animate">
+                    <div class="feature-icon">📊</div>
+                    <h3>Métricas de Produtividade</h3>
+                    <p>Acompanhe as apps que mais utilizou </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Download Section -->
+    <section id="download" class="download-section">
+        <div class="container">
+            <h2 class="section-title">Transferência Gratuita</h2>
+            <p class="section-subtitle">Descarregue agora o Productive Key e comece a trabalhar em harmonia com o tempo</p>
+            
+            <div class="download-card">
+                <div class="download-icon">📱</div>
+                <h3>Productive Key APK</h3>
+                <p>Versão Android - Compatível com Android 8.0+</p>
+                
+                <div class="download-steps">
+                    <div class="download-step">
+                        <div class="step-number">1</div>
+                        <div class="step-description">Clique em Transferir</div>
+                    </div>
+                    <div class="download-step">
+                        <div class="step-number">2</div>
+                        <div class="step-description">Instale o APK</div>
+                    </div>
+                    <div class="download-step">
+                        <div class="step-number">3</div>
+                        <div class="step-description">Comece a usar!</div>
+                    </div>
+                </div>
+
+                <a href="https://www.mediafire.com/file/w0q2xsgmq3u0cfq/app-release.apk/file" 
+                   class="download-btn" 
+                   target="_blank"
+                   onclick="trackDownload()">
+                    <span>🔗</span>
+                    <span>Transferência Direta do MediaFire</span>
+                </a>
+
+                <div class="security-badge">
+                    <span>🔒</span>
+                    <span>Ligação verificada e segura</span>
+                </div>
+
+                <div class="instructions">
+                    <h4>📋 Instruções de Instalação:</h4>
+                    <ol>
+                        <li><strong>Clique no botão acima</strong> para descarregar o ficheiro APK</li>
+                        <li>No seu Android, vá para <strong>Definições → Segurança</strong></li>
+                        <li>Ative <strong>"Fontes desconhecidas"</strong> para permitir a instalação</li>
+                        <li>Abra o ficheiro descarregado e clique em <strong>"Instalar"</strong></li>
+                        <li>Após a instalação, abra a aplicação e <strong>comece a usar!</strong></li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Weather Integration Section -->
+    <section id="weather" class="weather-integration">
+        <div class="container">
+            <h2 class="section-title">Tempo & Produtividade</h2>
+            <p class="section-subtitle">Veja como o Productive Key integra dados meteorológicos para otimizar a sua produtividade</p>
+            
+            <div class="weather-mockups">
+                <!-- iPhone Mockup 1 - Boas Vindas -->
+                <div class="iphone-container scroll-animate">
+                    <div class="iphone">
+                        <div class="iphone-notch"></div>
+                        <div class="iphone-screen iphone-profile">
+                            <img src="TelaBoasVindasApp.jpg" alt="Perfil" class="iphone-screenshot">
+                            <div class="home-indicator"></div>
+                        </div>
+                    </div>
+                    <div class="iphone-label">
+                        <h3>Ecrã de inicio</h3>
+                        <p>Interfaçe intuitiva</p>
+                    </div>
+                </div>
+
+                <!-- iPhone Mockup 2 - Inicio -->
+                <div class="iphone-container scroll-animate">
+                    <div class="iphone">
+                        <div class="iphone-notch"></div>
+                        <div class="iphone-screen iphone-weather">
+                            <img src="TelaInicioPic.jpg" alt="Tempo" class="iphone-screenshot">
+                            <div class="home-indicator"></div>
+                        </div>
+                    </div>
+                    <div class="iphone-label">
+                        <h3>Ecrã principal</h3>
+                        <p>O inicio de toda a aplicação</p>
+                    </div>
+                </div>
+
+                <!-- iPhone Mockup 3 - Tempo -->
+                <div class="iphone-container scroll-animate">
+                    <div class="iphone">
+                        <div class="iphone-notch"></div>
+                        <div class="iphone-screen iphone-agenda">
+                            <img src="TElaTempoLimpoPic.jpg" alt="Agenda" class="iphone-screenshot">
+                            <div class="home-indicator"></div>
+                        </div>
+                    </div>
+                    <div class="iphone-label">
+                        <h3>Ecrã de tempo</h3>
+                        <p>Saiba o tempo onde estiver e em qualquer outro lugar</p>
+                    </div>
+                </div>
+
+                <!-- iPhone Mockup 4 -->
+                <div class="iphone-container scroll-animate">
+                    <div class="iphone">
+                        <div class="iphone-notch"></div>
+                        <div class="iphone-screen">
+                            <img src="TelaChatIAPic.jpg" alt="App Screenshot 4" class="iphone-screenshot">
+                            <div class="home-indicator"></div>
+                        </div>
+                    </div>
+                    <div class="iphone-label">
+                        <h3>Chat bot de produtividade</h3>
+                        <p>Tire duvidas e aumente sempre a sua produtividade</p>
+                    </div>
+                </div>
+
+                <!-- iPhone Mockup 5 -->
+                <div class="iphone-container scroll-animate">
+                    <div class="iphone">
+                        <div class="iphone-notch"></div>
+                        <div class="iphone-screen">
+                            <img src="TelaCalendarioPic.jpg" alt="App Screenshot 5" class="iphone-screenshot">
+                            <div class="home-indicator"></div>
+                        </div>
+                    </div>
+                    <div class="iphone-label">
+                        <h3>Calendário</h3>
+                        <p>Com a ligação ao Google Calendar</p>
+                    </div>
+                </div>
+
+                <!-- iPhone Mockup 6 - Música -->
+                <div class="iphone-container scroll-animate" onclick="window.location.href='../music/index.html'" style="cursor: pointer;">
+                    <div class="iphone">
+                        <div class="iphone-notch"></div>
+                        <div class="iphone-screen">
+                            <img src="TelaMusicPic.jpg" alt="Música" class="iphone-screenshot">
+                            <div class="home-indicator"></div>
+                        </div>
+                    </div>
+                    <div class="iphone-label">
+                        <h3>Controlador de Música</h3>
+                        <p>Onde voce pode controlar a musica que ouve</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Google Login Integration Section -->
+    <section id="google-login" class="google-login-section">
+        <div class="container">
+            <h2 class="section-title">Acesso Seguro com Google</h2>
+            <p class="section-subtitle">Login integrado e seguro para sincronizar sua conta em qualquer dispositivo</p>
+            
+            <div class="weather-mockups">
+                <!-- iPhone Mockup - Google Login -->
+                <div class="iphone-container scroll-animate">
+                    <div class="iphone">
+                        <div class="iphone-notch"></div>
+                        <div class="iphone-screen">
+                            <img src="TelaPerfilPic.jpg" alt="Login Google" class="iphone-screenshot">
+                            <div class="home-indicator"></div>
+                        </div>
+                    </div>
+                    <div class="iphone-label">
+                        <h3>Autenticação Google</h3>
+                        <p>Aceda de forma rápida e segura com sua conta Google</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Review Section -->
+    <section id="review" class="review-section">
+        <div class="container">
+            <h2 class="section-title">Partilhe a Sua Experiência</h2>
+            <p class="section-subtitle">A sua opinião ajuda-nos a melhorar e a criar uma ferramenta ainda mais poderosa</p>
+            
+            <div class="review-form">
+                <h3>Deixe a Sua Avaliação</h3>
+                <form id="reviewForm">
+                    <div class="form-group">
+                        <label for="userName">O Seu Nome</label>
+                        <input type="text" id="userName" name="userName" placeholder="Como prefere ser chamado" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="userEmail">O Seu Email</label>
+                        <input type="email" id="userEmail" name="userEmail" placeholder="exemplo@email.com" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Avaliação</label>
+                        <div class="stars" id="stars">
+                            <span class="star" data-rating="1">★</span>
+                            <span class="star" data-rating="2">★</span>
+                            <span class="star" data-rating="3">★</span>
+                            <span class="star" data-rating="4">★</span>
+                            <span class="star" data-rating="5">★</span>
+                        </div>
+                        <input type="hidden" id="rating" name="rating" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="userExperience">Como é que o Productive Key melhorou a sua produtividade?</label>
+                        <textarea id="userExperience" name="userExperience" placeholder="Conte-nos sobre a sua experiência com a integração do tempo na sua produtividade..." required></textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="weatherImpact">Como é que as condições meteorológicas afetam o seu trabalho?</label>
+                        <select id="weatherImpact" name="weatherImpact" required>
+                            <option value="">Selecione uma opção</option>
+                            <option value="very">Muito - o tempo influencia bastante o meu trabalho</option>
+                            <option value="moderate">Moderadamente - afeta em algumas situações</option>
+                            <option value="little">Pouco - quase não noto diferença</option>
+                            <option value="none">Nada - não afeta o meu trabalho</option>
+                        </select>
+                    </div>
+                    
+                    <button type="submit" class="btn btn-primary" style="width: 100%;">
+                        <span>📨 Enviar Avaliação</span>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Productivity Steps -->
+    <section id="how-it-works" class="productivity-steps">
+        <div class="container">
+            <h2 class="section-title">Trabalhe com a ajuda da Productive Key</h2>
+            <p class="section-subtitle">Descobre a melhor forma de maximizar a sua produtividade</p>
+            <div class="steps">
+                <div class="step scroll-animate">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h3>Analise o Ambiente</h3>
+                        <p>A aplicação monitoriza continuamente as condições meteorológicas e adapta as recomendações ao seu contexto específico</p>
+                    </div>
+                </div>
+                <div class="step scroll-animate">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h3>O seu telemovel não tem q ser uma distração</h3>
+                        <p>Evite distrações e mantenha o foco no seu trabalho com o Productive Key</p>
+                    </div>
+                </div>
+                <div class="step scroll-animate">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h3>Alcance a Produtividade total</h3>
+                        <p>Trabalhe sempre focado sem se desviar do objetivo</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="app-icon">🔑</div>
+                    <span class="app-name">Productive Key</span>
+                </div>
+                <p class="footer-tagline">Produtividade em harmonia com a natureza - Trabalhe com o tempo, não contra ele</p>
+                <p class="footer-copyright">&copy; 2025-2026 Filipe Veríssmo. Todos os direitos reservados.</p>
+                <p class="footer-copyright"><a href="direitos-autor.html">Direitos de Autor</a></p>
+                <p class="footer-copyright" style="margin-top: 10px; font-size: 0.9rem;">
+                    Dados meteorológicos fornecidos pela API do OpenWeatherMap
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Beta Notice Section -->
+    <section class="beta-notice">
+        <div class="container">
+            <div class="beta-badge">🚀 BETA</div>
+            <h3>Aplicação em Desenvolvimento</h3>
+            <p>O Productive Key está atualmente em fase beta. Alguns recursos podem mudar, ser melhorados ou atualizados regularmente. Agradecemos por testar a aplicação e partilhar o seu feedback para nos ajudar a aperfeiçoar a experiência.</p>
+            
+            <!-- Feedback form removido conforme pedido -->
+        </div>
+    </section>
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="backToTop" aria-label="Voltar ao topo">
+        ↑
+    </button>
+
+    <!-- EmailJS SDK -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script>
+        // Inicializar EmailJS com SUA chave pública
+        (function() {
+            emailjs.init("6D2NtGC5SRlYRJGMS"); 
+        })();
+    </script>
+
+    <!-- JavaScript Modular -->
+    <!-- Modelos/Scenes -->
+    <script src="darkMode.js"></script>
+    <script src="notifications.js"></script>
+    <script src="weather.js"></script>
+    <script src="rating.js"></script>
+    <script src="email.js"></script>
+    <script src="feedback.js"></script>
+    <script src="scrollAnimations.js"></script>
+    
+    <!-- Ficheiro principal -->
+    <script src="main.js"></script>
+
+    <!-- YouTube IFrame API -->
+    <script src="https://www.youtube.com/iframe_api"></script>
+    
+    <!-- Botpress Chatbot -->
+    <script src="https://cdn.botpress.cloud/webchat/v3.3/inject.js"></script>
+    <script src="https://files.bpcontent.cloud/2025/02/20/16/20250220162029-UIHKCWPQ.js" defer></script>
+    
+    <!-- iPhone Time Update -->
+    <script src="iphone-time.js"></script>
+</body>
+</html>
