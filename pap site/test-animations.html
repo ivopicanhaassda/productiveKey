@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teste de Animações - Productive Key</title>
+    <link rel="stylesheet" href="animations.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #333;
+            padding: 40px 20px;
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        h1 {
+            text-align: center;
+            color: white;
+            margin-bottom: 60px;
+            font-size: 2.5em;
+        }
+        
+        .test-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+        
+        .test-card {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            scroll-behavior: smooth;
+        }
+        
+        .test-card.scroll-animate {
+            opacity: 0;
+        }
+        
+        .test-card h3 {
+            color: #667eea;
+            margin-bottom: 15px;
+            font-size: 1.3em;
+        }
+        
+        .test-card p {
+            color: #666;
+            font-size: 0.95em;
+            line-height: 1.6;
+        }
+        
+        .test-icon {
+            font-size: 3em;
+            margin-bottom: 15px;
+        }
+        
+        .info-box {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 40px;
+            border-left: 4px solid #667eea;
+        }
+        
+        .info-box h2 {
+            color: #667eea;
+            margin-bottom: 10px;
+        }
+        
+        .info-box p {
+            color: #666;
+            line-height: 1.6;
+        }
+        
+        .footer {
+            text-align: center;
+            color: white;
+            margin-top: 80px;
+            padding: 20px;
+            border-top: 2px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .console-log {
+            background: rgba(0, 0, 0, 0.8);
+            color: #0f0;
+            padding: 15px;
+            border-radius: 5px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9em;
+            margin-top: 20px;
+            max-height: 200px;
+            overflow-y: auto;
+        }
+        
+        .spacer {
+            height: 100px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>✨ Teste de Animações de Scroll ✨</h1>
+        
+        <div class="info-box">
+            <h2>🔍 Como Funciona</h2>
+            <p>
+                Scroll para baixo e veja os elementos aparecerem dos lados com animações 3D incríveis!
+                Os elementos aparecem alternadamente da esquerda (slideInLeft3D) e da direita (slideInRight3D).
+                Abra a consola (F12) para ver o console.log com o número de elementos encontrados.
+            </p>
+        </div>
+        
+        <h2 style="color: white; margin-bottom: 30px; text-align: center;">📱 Teste com os Cartões Abaixo</h2>
+        
+        <div class="test-grid">
+            <div class="test-card scroll-animate">
+                <div class="test-icon">🌤️</div>
+                <h3>Card 1 - Do Lado</h3>
+                <p>Este elemento deve aparecer com uma animação 3D vindo de um dos lados quando você faz scroll.</p>
+            </div>
+            
+            <div class="test-card scroll-animate">
+                <div class="test-icon">⚡</div>
+                <h3>Card 2 - Do Outro Lado</h3>
+                <p>Este elemento aparece do lado oposto ao anterior, alternando de forma harmoniosa.</p>
+            </div>
+            
+            <div class="test-card scroll-animate">
+                <div class="test-icon">🎵</div>
+                <h3>Card 3 - Alternância</h3>
+                <p>Os elementos continuam alternando para criar um padrão visual interessante.</p>
+            </div>
+            
+            <div class="test-card scroll-animate">
+                <div class="test-icon">🔋</div>
+                <h3>Card 4 - Padrão</h3>
+                <p>A sequência continua, mantendo a ordem: esquerda, direita, esquerda, direita...</p>
+            </div>
+            
+            <div class="test-card scroll-animate">
+                <div class="test-icon">🌙</div>
+                <h3>Card 5 - Harmonia</h3>
+                <p>As animações criam um efeito cascata agradável ao olhar.</p>
+            </div>
+            
+            <div class="test-card scroll-animate">
+                <div class="test-icon">📊</div>
+                <h3>Card 6 - Visual</h3>
+                <p>O padrão alternado torna a página mais dinâmica e interessante.</p>
+            </div>
+        </div>
+        
+        <div class="spacer"></div>
+        
+        <div class="info-box">
+            <h2>🎯 Teste das Animações de iPhone</h2>
+            <p>
+                Continue scrolling para ver mais exemplos. Os iPhones devem ter animações 3D especiais no hover:
+                quando passar o rato por cima, eles giram em 3D com rotateY(-15deg) e rotateX(5deg).
+            </p>
+        </div>
+        
+        <div class="spacer"></div>
+        
+        <div class="test-grid">
+            <div class="test-card scroll-animate">
+                <div class="test-icon">🎨</div>
+                <h3>Mais um Teste</h3>
+                <p>Mais uma seção com elementos animados para você testar o sistema completo.</p>
+            </div>
+            
+            <div class="test-card scroll-animate">
+                <div class="test-icon">🚀</div>
+                <h3>Velocidade</h3>
+                <p>As animações devem ser suaves e rápidas, durando cerca de 0.9 segundos.</p>
+            </div>
+            
+            <div class="test-card scroll-animate">
+                <div class="test-icon">💎</div>
+                <h3>Qualidade</h3>
+                <p>O efeito 3D com perspective e blur deve criar uma sensação de profundidade.</p>
+            </div>
+        </div>
+        
+        <div class="spacer"></div>
+        <div class="spacer"></div>
+        
+        <div class="footer">
+            <h3>✅ Teste Completo</h3>
+            <p>Se você viu todos os elementos aparecerem com animações 3D vindo dos lados, então tudo está funcionando!</p>
+            <div class="console-log" id="consoleLog">
+                <p>Abra a consola (F12) para ver os logs...</p>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Importar o JavaScript de animações -->
+    <script src="scrollAnimations.js"></script>
+    <script>
+        // Capturar e exibir logs da consola
+        const originalLog = console.log;
+        const consoleLog = document.getElementById('consoleLog');
+        
+        console.log = function(...args) {
+            originalLog.apply(console, args);
+            const message = args.map(arg => 
+                typeof arg === 'object' ? JSON.stringify(arg) : String(arg)
+            ).join(' ');
+            
+            const logEntry = document.createElement('div');
+            logEntry.textContent = '> ' + message;
+            consoleLog.appendChild(logEntry);
+            consoleLog.scrollTop = consoleLog.scrollHeight;
+        };
+        
+        // Log inicial
+        console.log('🚀 Teste de Animações iniciado!');
+        console.log('📊 Scroll para baixo para ver as animações...');
+    </script>
+</body>
+</html>

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teste de Vídeo</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            background: #000;
+            font-family: Arial;
+            color: white;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        button {
+            padding: 15px 30px;
+            font-size: 18px;
+            background: #2563eb;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+        button:hover {
+            background: #1e40af;
+        }
+        #videoModal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0,0,0,0.8);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+        }
+        #videoModal.open {
+            display: flex;
+        }
+        .video-box {
+            position: relative;
+            width: 90%;
+            max-width: 800px;
+            background: black;
+        }
+        video {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        .close-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: red;
+            color: white;
+            border: none;
+            width: 40px;
+            height: 40px;
+            font-size: 24px;
+            cursor: pointer;
+            border-radius: 50%;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Teste de Vídeo - Productive Key</h1>
+        <p>Clique no botão abaixo para abrir o vídeo</p>
+        <button onclick="abrirVideo()">▶ Abrir Vídeo</button>
+    </div>
+
+    <div id="videoModal">
+        <div class="video-box">
+            <button class="close-btn" onclick="fecharVideo()">✕</button>
+            <video controls autoplay>
+                <source src="vidioApp/0113 (2)(1).mp4" type="video/mp4">
+                Navegador não suporta vídeo
+            </video>
+        </div>
+    </div>
+
+    <script>
+        function abrirVideo() {
+            console.log('Abrindo vídeo...');
+            document.getElementById('videoModal').classList.add('open');
+        }
+        
+        function fecharVideo() {
+            console.log('Fechando vídeo...');
+            const modal = document.getElementById('videoModal');
+            modal.classList.remove('open');
+            const video = modal.querySelector('video');
+            if (video) {
+                video.pause();
+                video.currentTime = 0;
+            }
+        }
+    </script>
+</body>
+</html>
